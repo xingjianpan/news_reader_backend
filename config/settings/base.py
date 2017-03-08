@@ -62,6 +62,7 @@ LOCAL_APPS = [
     # custom users app
     'news_reader_backend.users.apps.UsersConfig',
     # Your stuff: custom apps go here
+    'offical',
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

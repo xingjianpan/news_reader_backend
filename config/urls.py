@@ -26,6 +26,13 @@ urlpatterns = [
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+
+# API
+urlpatterns += [
+    url(r'^api/', include('offical.api.urls', namespace='api')),
+]
+
+
 if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit
     # these url in browser to see how these error pages look like.
