@@ -32,6 +32,9 @@ urlpatterns += [
     url(r'^api/', include('offical.api.urls', namespace='api')),
 ]
 
+urlpatterns += [
+    url(r'^', include('snippets.urls')),
+]
 
 if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit
