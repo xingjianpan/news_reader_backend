@@ -25,6 +25,7 @@ Pillow==4.0.0
 # For user registration, either via email or social
 # Well-built with regular release cycles!
 django-allauth==0.31.0
+django-rest-auth==0.9.1
 
 # On Windows, you must download/install psycopg2 manually
 # from http://www.lfd.uci.edu/~gohlke/pythonlibs/#psycopg

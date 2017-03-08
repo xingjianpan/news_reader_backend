@@ -27,6 +27,10 @@ urlpatterns = [
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+urlpatterns += [
+    url(r'^rest-auth/', include('rest_auth.urls')),
+    url(r'^rest-auth/registration/', include('rest_auth.registration.urls'))
+]
 
 # API
 urlpatterns += [
@@ -37,6 +41,10 @@ urlpatterns += [
     url(r'^', include('snippets.urls')),
 ]
 
+urlpatterns += [
+    url(r'^api-auth/', include('rest_framework.urls',
+                               namespace='rest_framework')),
+]
 
 if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit
