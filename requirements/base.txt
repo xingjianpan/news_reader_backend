@@ -41,7 +41,10 @@ django-redis==4.7.0
 redis>=2.10.5
 
 
-
+# rest
+djangorestframework==3.5.4
+Markdown==2.6.8
+django-filter==1.0.1
 
 
 # Your custom requirements go here

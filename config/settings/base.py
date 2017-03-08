@@ -10,6 +10,8 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 """
 from __future__ import absolute_import, unicode_literals
 
+from .django_rest import *
+
 import environ
 
 ROOT_DIR = environ.Path(__file__) - 3  # (news_reader_backend/config/settings/base.py - 3 = news_reader_backend/)
@@ -52,6 +54,7 @@ THIRD_PARTY_APPS = [
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
+    'rest_framework',
 ]
 
 # Apps specific for this project go here.
