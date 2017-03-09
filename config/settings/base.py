@@ -248,12 +248,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # ------------------------------------------------------------------------------
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    # 'allauth.account.auth_backends.AuthenticationBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
 # Some really nice defaults
-ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_EMAIL_VERIFICATION = 'optional'
 
 ACCOUNT_ALLOW_REGISTRATION = env.bool('DJANGO_ACCOUNT_ALLOW_REGISTRATION', True)
