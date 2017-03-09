@@ -37,6 +37,7 @@ router.register(r'myusers', views.UserViewSet)
 
 # Login and logout views for the browsable API
 urlpatterns = [
+    # NOTE: first defined first served order
     url(r'^api/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls',
                                namespace='rest_framework')),
