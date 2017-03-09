@@ -27,17 +27,16 @@ urlpatterns = [
 
 urlpatterns += [
     url(r'^rest-auth/', include('rest_auth.urls')),
-    url(r'^rest-auth/registration/', include('rest_auth.registration.urls'))
-]
-
-# API
-urlpatterns += [
-    url(r'^offical/', include('offical.api.urls', namespace='api')),
+    url(r'^rest-auth/registration/', include('rest_auth.registration.urls')),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
 
 urlpatterns += [
+    url(r'^', include('offical.api.urls')),
     url(r'^', include('snippets.urls')),
+    url(r'^', include('wall.urls')),
 ]
+
 
 
 if settings.DEBUG:

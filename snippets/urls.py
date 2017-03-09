@@ -31,14 +31,13 @@ user_detail = UserViewSet.as_view({
 # Create a router and register our viewsets with it.
 router = DefaultRouter()
 router.register(r'snippets', views.SnippetViewSet)
-router.register(r'myusers', views.UserViewSet)
+router.register(r'susers', views.UserViewSet)
 
 
 
 # Login and logout views for the browsable API
 urlpatterns = [
     # NOTE: first defined first served order
-    url(r'^api/', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls',
-                               namespace='rest_framework')),
+    url(r'^snippets/', include(router.urls)),
+
 ]
