@@ -22,8 +22,6 @@ urlpatterns = [
 
     # Your stuff: custom urls includes go here
 
-    # rest
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
@@ -34,17 +32,13 @@ urlpatterns += [
 
 # API
 urlpatterns += [
-    url(r'^api/', include('offical.api.urls', namespace='api')),
+    url(r'^offical/', include('offical.api.urls', namespace='api')),
 ]
 
 urlpatterns += [
     url(r'^', include('snippets.urls')),
 ]
 
-urlpatterns += [
-    url(r'^api-auth/', include('rest_framework.urls',
-                               namespace='rest_framework')),
-]
 
 if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit
