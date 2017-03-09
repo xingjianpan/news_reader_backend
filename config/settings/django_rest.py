@@ -7,6 +7,7 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
+        # Disable session authentcaion when using as a RESTful backend for React
+        # 'rest_framework.authentication.SessionAuthentication',
     )
 }
