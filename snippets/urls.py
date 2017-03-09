@@ -1,20 +1,43 @@
-from django.conf.urls import include, url
+from django.conf.urls import url, include
 from snippets import views
 from rest_framework.urlpatterns import format_suffix_patterns
+from snippets.views import SnippetViewSet, UserViewSet, api_root
+from rest_framework import renderers
+from rest_framework.routers import DefaultRouter
 
-urlpatterns = [
-    url(r'^api/$', views.api_root),
-    url(r'^snippets/$', views.SnippetList.as_view(), name='snippet-list'),
-    url(r'^snippets/(?P<pk>[0-9]+)/$', views.SnippetDetail.as_view(), name='snippet-detail'),
-    url(r'^myusers/$', views.UserList.as_view(), name='user-list'),
-    url(r'^myusers/(?P<pk>[0-9]+)/$', views.UserDetail.as_view(), name='user-detail'),
-    url(r'^snippets/(?P<pk>[0-9]+)/highlight/$', views.SnippetHighlight.as_view(), name='snippet-highlight'),
-]
 
-urlpatterns = format_suffix_patterns(urlpatterns)
+snippet_list = SnippetViewSet.as_view({
+    'get': 'list',
+    'post': 'create'
+})
+snippet_detail = SnippetViewSet.as_view({
+    'get': 'retrieve',
+    'put': 'update',
+    'patch': 'partial_update',
+    'delete': 'destroy'
+})
+snippet_highlight = SnippetViewSet.as_view({
+    'get': 'highlight'
+}, renderer_classes=[renderers.StaticHTMLRenderer])
+user_list = UserViewSet.as_view({
+    'get': 'list'
+})
+user_detail = UserViewSet.as_view({
+    'get': 'retrieve'
+})
+
+
+
+# Create a router and register our viewsets with it.
+router = DefaultRouter()
+router.register(r'snippets', views.SnippetViewSet)
+router.register(r'myusers', views.UserViewSet)
+
+
 
 # Login and logout views for the browsable API
-urlpatterns += [
+urlpatterns = [
+    url(r'^api/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls',
                                namespace='rest_framework')),
 ]
