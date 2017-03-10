@@ -11,4 +11,4 @@ class Post(models.Model):
     owner = models.ForeignKey('users.User', related_name='posts', on_delete=models.CASCADE)
 
     class Meta:
-        ordering = ('created',)
+        ordering = ('-created',)
