@@ -10,7 +10,8 @@ class SnippetSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Snippet
         fields = ('url','id', 'highlight', 'owner',
-                  'title', 'code', 'linenos', 'language', 'style'
+                  'title', 'code', 'linenos', 'language',
+                  'style', 'ispublic'
                   )
 
 # Serializers define the API representation.
