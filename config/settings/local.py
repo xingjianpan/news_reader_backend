@@ -16,7 +16,7 @@ from .base import *  # noqa
 
 # DEBUG
 # ------------------------------------------------------------------------------
-DEBUG = env.bool('DJANGO_DEBUG', default=True)
+DEBUG = env.bool('DJANGO_DEBUG', default=False)
 TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
 
 # SECRET CONFIGURATION
@@ -24,7 +24,7 @@ TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 # Note: This key only used for development and testing.
 SECRET_KEY = env('DJANGO_SECRET_KEY', default='FR676f7$}{e`.^i&<,![4iHiF(}N>g6ZJ5$v!g.`#<,-=v*0n}')
-
+ALLOWED_HOSTS = env('DJANGO_ALLOWED_HOSTS')
 # Mail settings
 # ------------------------------------------------------------------------------
 
