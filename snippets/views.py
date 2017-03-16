@@ -39,6 +39,12 @@ class UserSnippetList(SnippetList):
         return Snippet.objects.filter(owner=self.request.user)
 
 
+class SearchSnippetList(SnippetList):
+    def get_queryset(self):
+        language = self.kwargs['language']
+        return Snippet.objects.filter(language=language)
+
+
 class SnippetDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Snippet.objects.all()
     serializer_class = SnippetSerializer
