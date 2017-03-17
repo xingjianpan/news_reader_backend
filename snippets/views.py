@@ -9,6 +9,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 from rest_framework import renderers
+from django_filters import rest_framework as filters
+from .filters import SnippetFilter
 
 User = get_user_model()
 
@@ -24,6 +26,8 @@ class SnippetList(generics.ListCreateAPIView):
     queryset = Snippet.objects.all()
     serializer_class = SnippetSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    filter_backends = (filters.DjangoFilterBackend,)
+    filter_class = SnippetFilter
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
