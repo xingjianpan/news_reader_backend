@@ -4,18 +4,18 @@ from django.urls import reverse
 
 
 class Article(models.Model):
-    headline = models.CharField(max_length=500, blank=True, null=True)
-    fly_title = models.CharField(max_length=500, blank=True, null=True)
-    alternativename = models.CharField(max_length=500, blank=True, null=True)
+    headline = models.TextField(blank=True, null=True)
+    fly_title = models.TextField(blank=True, null=True)
+    alternativename = models.TextField(blank=True, null=True)
     content_dirty = models.TextField(blank=True, null=True)
     content_clean = models.TextField(blank=True, null=True)
-    category = models.CharField(max_length=500, blank=True, null=True)
-    source = models.CharField(max_length=500, blank=True, null=True)
+    category = models.TextField(blank=True, null=True)
+    source = models.TextField(blank=True, null=True)
     pub_date = models.DateTimeField(blank=True, null=True)
-    source_url = models.URLField(max_length=500, editable=False)
-    spider = models.CharField(max_length=500, editable=False)
+    source_url = models.URLField(editable=False)
+    spider = models.TextField(editable=False)
     create_date = models.DateTimeField(editable=False, auto_now_add=True)
-    project = models.CharField(max_length=500, editable=False)
+    project = models.TextField(editable=False)
     owner = models.ForeignKey(
         'users.User', related_name='articles', on_delete=models.CASCADE)
 
