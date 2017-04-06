@@ -20,7 +20,7 @@ class Article(models.Model):
         'users.User', related_name='articles', on_delete=models.CASCADE)
 
     class Meta:
-        ordering = ['-source', 'category']
+        ordering = ['-id']
 
     def __str__(self):              # __unicode__ on Python 2
         return self.headline
