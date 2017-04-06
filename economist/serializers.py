@@ -13,5 +13,6 @@ class ArticleSerializer(serializers.ModelSerializer):
         model = Article
         fields = (
             'id', 'headline', 'fly_title', 'alternativename',
-            'content_dirty', 'content_clean', 'category', 'source', 'pub_data',
-            'create_date', 'source_url', 'link')
+            'content_dirty', 'content_clean', 'category', 'source', 'pub_date',
+            'create_date', 'source_url', 'spider', 'project',
+            'link', 'owner')

@@ -4,7 +4,6 @@ from django.urls import reverse
 
 
 class Article(models.Model):
-    id = models.IntegerField(primary_key=True, editable=False)
     headline = models.CharField(max_length=500, blank=True, null=True)
     fly_title = models.CharField(max_length=500, blank=True, null=True)
     alternativename = models.CharField(max_length=500, blank=True, null=True)
@@ -15,7 +14,7 @@ class Article(models.Model):
     pub_date = models.DateTimeField(blank=True, null=True)
     source_url = models.URLField(max_length=500, editable=False)
     spider = models.CharField(max_length=500, editable=False)
-    create_date = models.DateTimeField(editable=False)
+    create_date = models.DateTimeField(editable=False, auto_now_add=True)
     project = models.CharField(max_length=500, editable=False)
     owner = models.ForeignKey(
         'users.User', related_name='articles', on_delete=models.CASCADE)
