@@ -35,6 +35,8 @@ urlpatterns += [
     url(r'^', include('offical.api.urls')),
     url(r'^', include('snippets.urls')),
     url(r'^', include('wall.urls')),
+    url(r'^', include('economist.urls',
+        namespace='economist', app_name='economist'),),
 ]
 
 

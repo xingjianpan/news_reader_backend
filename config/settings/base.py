@@ -70,6 +70,7 @@ LOCAL_APPS = [
     'offical',
     'snippets.apps.SnippetsConfig',
     'wall.apps.WallConfig',
+    'economist.apps.EconomistConfig'
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
